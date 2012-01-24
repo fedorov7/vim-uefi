@@ -32,7 +32,7 @@ syn case match
 
 " Guid: {{{1
 " "========== 
- syn match      efiGuid "\M\<\x\{8}-\x\{4}-\x\{4}-\x\{4}-\x\{12}\>"
+ syn match      efiGuid "\M\<\x\{8}-\x\{4}-\x\{4}-\x\{4}-\x\{12}\>" contains=efiInt  
  syn match      efiGuidGlobalVar "\M\<g\w\+Guid\>"
 
 " Types: {{{1
@@ -43,20 +43,21 @@ syn case match
 " "==========
  syn match      efiHex      "\M\<0\(x\|X\)\x\{1,32}\>"
  syn match      efiFloat    "\M\<\d\+.\d\+\>"
- syn match      efiInt      "\M\<\d\+\>" 
+ syn match      efiInt      "\M\<\d\+\>\ze\(-\)\@!"
  syn region     efiString   start=+L\="+ skip=+\\"+ end=+"+
  syn keyword    efiBoolean TRUE FALSE
 
 " Idioms: {{{1 
 " "==========
  syn match      efiToken    "\M\<g\i\+TokenSpaceGuid.Pcd\i\+\>" 
- syn match      efiPath     "\M\<\(\w\+/\)\+\(\w\|.\|-\)\+\>" 
- syn match      efiSource   "\M\<\u\w\*.\w\+\>"
- syn match      efiLib      "\M\<\u\w\*Lib\>"
- syn match      efiPoint    "\M\<\u\w\*Point\>"
+ syn match      efiPath     "\M/\=\(\w\+/\)\+\(\w\|.\|-\)\+\>" 
+ syn match      efiSource   "\M\s\+\zs\u\w\*.\w\+\ze\s\=$"
+ syn match      efiLib      "\M\<\u\w\*Lib\>\ze\(/\|.\)\@!"
+ syn match      efiPoint    "\M\<\u\w\*Point\>\ze\(/\)\@!"
  syn match      efiPreprocessor "\v^!((endif|else|include)|(if|ifndef|ifdef)\s+\$\(\i+\)).*$"
- syn match      efiArchSection  "\v\.(IA32|X64|IPF|EBC|ARM|common|Ebc|USER_DEFINED)"
- syn match      efiArchConst    "\v\|=\zs(IA32|X64|IPF|EBC|ARM|common|Ebc|USER_DEFINED)\ze\|="
+ syn match      efiArchSection  "\v\.(I(a|A)32|(x|X)64|IPF|E(bc|BC)|ARM|(c|C)ommon|USER_DEFINED)"
+ syn match      efiArchConst    "\v\|=\zs(IA32|X64|IPF|EBC|ARM|common|Ebc|USER_DEFINED)\ze\|=/@!"
+ syn match      efiEnv          "\M$(\w\+)"
 
 " Special symbols: {{{1
 " "==========
@@ -89,13 +90,13 @@ if version >= 508 || !exists("did_proto_syn_inits")
   HiLink efiTodo            Todo         "full yellow
   HiLink efiType            Type         "green
   HiLink efiGuid            Identifier   "lignt blue
+  HiLink efiEnv             Identifier   "lignt blue
   HiLink efiParenthesis     Identifier   "lignt blue
   HiLink efiSection         Statement    "yellow
   HiLink efiArchSection     Statement
   HiLink efiHex             Constant     "red
   HiLink efiFloat           Constant     "red
   HiLink efiModuleType      Constant     "red
-  "HiLink efiArch            Constant     "red
   HiLink efiInt             Constant     "red
   HiLink efiBoolean         Constant     "red
   HiLink efiString          Constant     "red
