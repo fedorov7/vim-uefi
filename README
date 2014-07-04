@@ -1,5 +1,1 @@
-=== VIM ===
-uefi.vim - VIM syntax file
-EFI.vim - VIM ftdetect file
-=== GUID ===
-uuidc.py - C-style GUID generation python script. It uses standard uuid utility for generate GUID and converts into C-style structure.
+Syntax highlighting for UEFI EDK2 project files
