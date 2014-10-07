@@ -1,8 +1,16 @@
 # Snippets for edk2 uni strings
 
-priority -40
+priority -50
 
-snippet 'uni' "define for unicode multi language strings"
-#define ${1}                                #language en-US "${2}"
-                                            #language ru-RU "${3}"
+global !p
+
+second_column=44
+
+endglobal
+
+snippet uni "unicode string definitions" b
+`!p snip.rv='#string'` ${1:Definition}  `!p snip.rv = (second_column - 10 - len(t[1]))*' '`#language en-US "${2:English}"
+`!p snip.rv = second_column*' '`#language ru-RU "${3:Русский}"
+$0
 endsnippet
+
