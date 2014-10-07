@@ -9,8 +9,8 @@ second_column=44
 endglobal
 
 snippet uni "unicode string definitions" b
-`!p snip.rv='#string'` ${1:Definition}  `!p snip.rv = (second_column - 10 - len(t[1]))*' '`#language en-US "${2:English}"
-`!p snip.rv = second_column*' '`#language ru-RU "${3:Русский}"
+`!p snip.rv='#string'` ${1:STR_NULL_STRING}  `!p snip.rv = (second_column - 10 - len(t[1]))*' '`#language en-US "${2}"
+`!p snip.rv = second_column*' '`#language ru-RU "${3}"
 $0
 endsnippet
 
