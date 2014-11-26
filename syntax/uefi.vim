@@ -1,5 +1,5 @@
 " This is the Vim syntax file for UEFI files (DEC, INF, DSC).
-" 
+"
 " Maintainer: Alexander Fedorov "fedorov7@gmail.com"
 " Date: Thu Jan 19 13:59:54 MSK 2012
 "
@@ -31,13 +31,13 @@ syn case match
  syn match      efiQuickComment  contained  "#.*$"
 
 " Guid: {{{1
-" "========== 
- syn match      efiGuid "\M\<\x\{8}-\x\{4}-\x\{4}-\x\{4}-\x\{12}\>" contains=efiInt  
+" "==========
+ syn match      efiGuid "\M\<\x\{8}-\x\{4}-\x\{4}-\x\{4}-\x\{12}\>" contains=efiInt
  syn match      efiGuidGlobalVar "\M\<g\w\+Guid\>"
 
 " Types: {{{1
 " "==========
- syn keyword    efiType UINT8 UINT16 UINT32 UINT64 UINT8z UINT16z UINT32z UINT64z BOOLEAN VOID 
+ syn keyword    efiType UINT8 UINT16 UINT32 UINT64 UINT8z UINT16z UINT32z UINT64z BOOLEAN VOID
 
 " Numbers and Constants: {{{1
 " "==========
@@ -47,10 +47,10 @@ syn case match
  syn region     efiString   start=+L\="+ skip=+\\"+ end=+"+
  syn keyword    efiBoolean TRUE FALSE
 
-" Idioms: {{{1 
+" Idioms: {{{1
 " "==========
- syn match      efiToken    "\M\<g\i\+TokenSpaceGuid.Pcd\i\+\>" 
- syn match      efiPath     "\M/\=\(\w\+/\)\+\(\w\|.\|-\)\+\>" 
+ syn match      efiToken    "\M\<g\i\+TokenSpaceGuid.Pcd\i\+\>"
+ syn match      efiPath     "\M/\=\(\w\+/\)\+\(\w\|.\|-\)\+\>"
  syn match      efiSource   "\M\s\+\zs\u\w\*.\w\+\ze\s\=$"
  syn match      efiLib      "\M\<\u\w\*Lib\>\ze\(/\|.\)\@!"
  syn match      efiPoint    "\M\<\u\w\*Point\>\ze\(/\)\@!"
@@ -65,17 +65,17 @@ syn case match
 
 " Useful keywords for headers: {{{1
 " "==========
- syn keyword    efiSection Defines Sources BuildOptions Binaries Includes Protocols Ppis Guids LibraryClasses Packages Dupex UserExtensions FeaturePcd Pcd FixedPcd PatchPcd PcdEx Depex UserExtensions PcdFeatureFlag PcdsFixedAtBuild PcdsPatchableInModule PcdsDynamic PcdsDinamicEx PcdsFeatureFlag PcdsDynamicEx SkuIds Libraries Components 
+ syn keyword    efiSection Defines Sources BuildOptions Binaries Includes Protocols Ppis Guids LibraryClasses Packages Dupex UserExtensions FeaturePcd Pcd FixedPcd PatchPcd PcdEx Depex UserExtensions PcdFeatureFlag PcdsFixedAtBuild PcdsPatchableInModule PcdsDynamic PcdsDinamicEx PcdsFeatureFlag PcdsDynamicEx SkuIds Libraries Components
 
 " Any useful keywords: {{{1
 " "==========
  syn keyword    infDefineSection INF_VERSION BASE_NAME EDK_RELEASE_VERSION PI_SPECIFICATION_VERSION UEFI_SPECIFICATION_VERSION FILE_GUID MODULE_TYPE VERSION_STRING LIBRARY_CLASS PCD_IS_DRIVER ENTRY_POINT UNLOAD_IMAGE CONSTRUCTOR DESTRUCTOR SHADOW PCI_DEVICE_ID PCI_VENDOR_ID PCI_CLASS_CODE PCI_COMPRESS UEFI_HII_RESOURCE_SECTION DEFINE SPEC CUSTOM_MAKEFILE DPX_SOUCE
- syn keyword    decDefineSection DEC_VERSION DEC_SPECIFICATION PACKAGE_NAME PACKAGE_GUID PACKAGE_VERSION 
- syn keyword    dscDefineSection DSC_VERSION DSC_SPECIFICATION PLATFORM_NAME PLATFORM_GUID PLATFORM_VERSION SKUID_IDENTIFIER OUTPUT_DIRECTORY SUPPORTED_ARCHITECTURES BUILD_TARGETS FLASH_DEFINITION BUILD_NUMBER RFC_LANGUAGES ISO_LANGUAGES TIME_STAMP_FILE VPD_TOOL_GUID 
+ syn keyword    decDefineSection DEC_VERSION DEC_SPECIFICATION PACKAGE_NAME PACKAGE_GUID PACKAGE_VERSION
+ syn keyword    dscDefineSection DSC_VERSION DSC_SPECIFICATION PLATFORM_NAME PLATFORM_GUID PLATFORM_VERSION SKUID_IDENTIFIER OUTPUT_DIRECTORY SUPPORTED_ARCHITECTURES BUILD_TARGETS FLASH_DEFINITION BUILD_NUMBER RFC_LANGUAGES ISO_LANGUAGES TIME_STAMP_FILE VPD_TOOL_GUID
 
 " Constants: {{{1
 " "==========
- syn keyword    efiModuleType BASE SEC PEI_CORE PEIM DXE_CORE DXE_DRIVER DXE_SAL_DRIVER DXE_RUNTIME_DRIVER SMM_CORE DXE_SMM_DRIVER UEFI_DRIVER UEFI_APPLICATION 
+ syn keyword    efiModuleType BASE SEC PEI_CORE PEIM DXE_CORE DXE_DRIVER DXE_SAL_DRIVER DXE_RUNTIME_DRIVER SMM_CORE DXE_SMM_DRIVER UEFI_DRIVER UEFI_APPLICATION
  syn keyword    efiTool     MSFT GCC INTEL RVCT XCODE
  syn keyword    efiConst    DEFAULT BUILD RELEASE NULL DEBUG OR AND
 
@@ -102,7 +102,7 @@ if version >= 508 || !exists("did_proto_syn_inits")
   HiLink efiString          Constant     "red
   HiLink efiTool            Constant     "red
   HiLink efiConst           Constant     "red
-  HiLink efiArchConst       Constant     
+  HiLink efiArchConst       Constant
   HiLink efiComment         Comment      "blue
   HiLink efiPreprocessor    Include      "purple
   hi     efiLib             ctermfg=LightRed
