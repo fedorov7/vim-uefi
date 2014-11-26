@@ -254,7 +254,7 @@ syn keyword kssMacroReturn  RETURN_IF_EFI_ERROR RETURN_IF_EFI_SUCCESS RETURN_IF_
 syn keyword kssMacroGoto    GOTO_IF_EFI_ERROR GOTO_IF_NULL GOTO_IF GOTO
 syn keyword kssMacroPrint   DBG_CHAR DBG_HEX DBG_STRING DBG_UNICODE_STRING DBG_CHAR_BUFFER DBG_BUFFER DBG_DEVICE_PATH DBG_JSON_HANDLE DBG_EFI_TIME
 
-syn keyword uefiType        IN OUT BOOLEAN INT8 UINT8 INT16 UINT16 INT32 UINT32 INT64 UINT64 UINTN INTN CHAR8 CHAR16 VOID LIST_ENTRY EFI_GUID EFI_STATUS EFI_HANDLE EFI_EVENT EFI_TPL EFI_LBA EFI_PHYSICAL_ADDRESS EFI_VIRTUAL_ADDRESS EFI_HII_HANDLE
+syn keyword uefiType        EFIAPI IN OUT BOOLEAN INT8 UINT8 INT16 UINT16 INT32 UINT32 INT64 UINT64 UINTN INTN CHAR8 CHAR16 VOID LIST_ENTRY EFI_GUID EFI_STATUS EFI_HANDLE EFI_EVENT EFI_TPL EFI_LBA EFI_PHYSICAL_ADDRESS EFI_VIRTUAL_ADDRESS EFI_HII_HANDLE
 
 syn match   kssType           "\M\<\u\(\u\|_\|\d\)\+\>"
 syn match   efiGuidGlobalVar  "\M\<g\w\+Guid\>"
@@ -269,14 +269,14 @@ hi def link efiFloat          Constant
 hi def link efiInt            Constant
 hi def link kssType           Macro
 hi def link uefiType          Type
-hi def link uefiFunction      Function
-hi def link kssMacroReturn    Statement
-hi          uefiError         ctermfg=DarkRed
+hi def link uefiFunction      x179_LightGoldenrod3 " Function
+hi def link uefiError         x203_IndianRed1 " x202_OrangeRed1 " ctermfg=DarkRed
 hi          uefiSuccess       ctermfg=DarkGreen
 hi          kssMacroMem       ctermfg=DarkCyan
 hi          kssMacroDebug     ctermfg=Magenta
 hi          kssMacroPrint     ctermfg=DarkMagenta
 hi def link kssMacroExit      x067_SteelBlue
+hi def link kssMacroReturn    x067_SteelBlue  "Statement
 hi def link kssMacroGoto      x097_MediumPurple3
 hi          efiGuidGlobalVar  ctermfg=LightMagenta
 
