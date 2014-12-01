@@ -256,13 +256,17 @@ syn keyword kssMacroPrint   DBG_CHAR DBG_HEX DBG_STRING DBG_UNICODE_STRING DBG_C
 
 syn keyword uefiType        EFIAPI IN OUT BOOLEAN INT8 UINT8 INT16 UINT16 INT32 UINT32 INT64 UINT64 UINTN INTN CHAR8 CHAR16 VOID LIST_ENTRY EFI_GUID EFI_STATUS EFI_HANDLE EFI_EVENT EFI_TPL EFI_LBA EFI_PHYSICAL_ADDRESS EFI_VIRTUAL_ADDRESS EFI_HII_HANDLE
 
+syn match   comparison        "\s!=\s\|\s==\s\|\s>=\s\|\s<=\s\|\s<\s\|\s>\s"
+
 syn match   kssType           "\M\<\u\(\u\|_\|\d\)\+\>"
 syn match   efiGuidGlobalVar  "\M\<g\w\+Guid\>"
-syn match   uefiFunction      "\M\<\u\w\+\s\*(\@="
+syn match   uefiFunction      "\M\<\(\w\|->\)\+\s\*(\@="
 
 syn match   efiHex            "\M\<0\(x\|X\)\x\{1,32}\>"
 syn match   efiFloat          "\M\<\d\+.\d\+\>"
 syn match   efiInt            "\M\<\d\+\>\ze\(-\)\@!"
+
+syn match   uefiTable         "\<\(gBS\|gRT\|gST\)\(->\|\w\)\+\>"
 
 hi def link efiHex            Constant
 hi def link efiFloat          Constant
@@ -279,6 +283,8 @@ hi def link kssMacroExit      x067_SteelBlue
 hi def link kssMacroReturn    x067_SteelBlue  "Statement
 hi def link kssMacroGoto      x097_MediumPurple3
 hi          efiGuidGlobalVar  ctermfg=LightMagenta
+hi def link comparison        Constant
+hi def link uefiTable         x211_PaleVioletRed1
 
 " vim: ts=2
 "

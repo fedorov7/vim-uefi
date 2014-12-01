@@ -1,5 +1,5 @@
 " This is the Vim syntax file for UEFI files (UNI).
-" 
+"
 " Maintainer: Alexander Fedorov "fedorov7@gmail.com"
 " Date: Thu Jan 19 13:59:54 MSK 2012
 "
@@ -29,9 +29,9 @@ syn match     uniStart      "\M/=#"
 
 " Any useful keywords: {{{1
 " "==========
-syn match     uniWords      "\M#string\>" 
+syn match     uniWords      "\M#string\>"
 syn match     uniLanguage   "\M#language\>"
-syn match     uniLocale     "\M\<\(\l\)\{2}-\(\u\)\{2}\>" 
+syn match     uniLocale     "\M\<\(\l\)\{2}-\(\u\)\{2}\>"
 syn match     uniToken      "\M\<\(\u\|_\|\d\)\+\>"
 
 
@@ -45,7 +45,7 @@ if version >= 508 || !exists("did_proto_syn_inits")
 
   HiLink  uniDefines        Include       "purple
   HiLink  uniStart          Include       "purple
-  HiLink  uniWords          Statement     "yellow 
+  HiLink  uniWords          Statement     "yellow
   HiLink  uniLanguage       Type          "green
  " HiLink  uniToken          Identifier    "cyan
   hi      uniLocale         ctermfg=LightGreen
