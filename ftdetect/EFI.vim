@@ -12,5 +12,6 @@ augroup filetype
   au ColorScheme,BufRead,BufNewFile *.h   set syntax=c.doxygen.kss
   au ColorScheme,BufRead,BufNewFile *.dec setf uefi
   au ColorScheme,BufRead,BufNewFile *.dsc setf uefi
+  au ColorScheme,BufRead,BufNewFile *.fdf setf uefi
   au ColorScheme,BufRead,BufNewFile *.dxs setf c.doxygen
 augroup end
