@@ -264,15 +264,17 @@ syn keyword errnoValue      errno EFIerrno ERESTART EMINERRORVAL EPERM ENOENT ES
 syn match   comparison        "\s!=\s\|\s==\s\|\s>=\s\|\s<=\s\|\s<\s\|\s>\s"
 
 syn match   kssType           "\M\<\u\(\u\|_\|\d\)\+\>"
-syn match   efiGuidGlobalVar  "\M\<g\w\+Guid\>"
 syn match   uefiFunction      "\M\<\(\w\|->\)\+\s\*(\@="
 syn match   uefiMacros        "\M\<\u\(\u\|_\|\d\)\+\s\*(\@="
+syn cluster uefiSpecial       contains=efiGuidGlobalVar
+syn match   efiGuidGlobalVar  "\M\<g\w\+Guid\>"
+syn match   uefiLink          "\M&\w\(\w\|->\|\.\)\+\>" contains=@uefiSpecial
 
 syn match   efiHex            "\M\<0\(x\|X\)\x\{1,32}\>"
 syn match   efiFloat          "\M\<\d\+.\d\+\>"
 syn match   efiInt            "\M\<\d\+\>\ze\(-\)\@!"
 
-syn match   uefiTable         "\<\(gBS\|gRT\|gST\)\(->\|\w\)\+\>"
+syn match   uefiTable         "\<\(gBS\|gRT\|gST\)\(->\|\w\)*\>"
 
 hi def link efiHex            Constant
 hi def link efiFloat          Constant
@@ -280,7 +282,7 @@ hi def link efiInt            Constant
 hi def link kssType           Macro
 hi def link uefiType          Type
 hi def link uefiFunction      x179_LightGoldenrod3
-hi def link uefiMacros        x039_DeepSkyBlue2
+hi def link uefiMacros        x038_DeepSkyBlue2
 hi def link uefiError         x203_IndianRed1
 hi def link errnoValue        x203_IndianRed1
 hi          uefiSuccess       ctermfg=DarkGreen
@@ -291,7 +293,8 @@ hi          kssMacroExit      ctermfg=Magenta
 hi          kssMacroHelper    ctermfg=Magenta
 hi def link kssMacroReturn    x067_SteelBlue
 hi def link kssMacroGoto      x097_MediumPurple3
-hi          efiGuidGlobalVar  ctermfg=LightMagenta
+hi def link efiGuidGlobalVar  x219_Plum1
+hi def link uefiLink          x153_LightSkyBlue1
 hi def link comparison        Constant
 hi def link uefiTable         x211_PaleVioletRed1
 hi def link kssMacroBreak     x138_RosyBrown
