@@ -268,7 +268,7 @@ syn match   uefiFunction      "\M\<\(\w\|->\)\+\s\*(\@="
 syn match   uefiMacros        "\M\<\u\(\u\|_\|\d\)\+\s\*(\@="
 syn cluster uefiSpecial       contains=efiGuidGlobalVar
 syn match   efiGuidGlobalVar  "\M\<g\w\+Guid\>"
-syn match   uefiLink          "\M&\w\(\w\|->\|\.\)\+\>" contains=@uefiSpecial
+syn match   uefiLink          "&\w\(\w\|->\|\.\)*" contains=@uefiSpecial
 
 syn match   efiHex            "\M\<0\(x\|X\)\x\{1,32}\>"
 syn match   efiFloat          "\M\<\d\+.\d\+\>"
