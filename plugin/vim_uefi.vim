@@ -43,31 +43,31 @@ endfunction
 function! s:UpdateCscope()
   :echohl Directory
   :echon "\rfind *.h files"
-  call s:system ('find . -name "*.h"    > cscope.files')
+  call s:system ('find `pwd` -name "*.h"    > cscope.files')
   :echohl Directory
   :echon "\rfind *.hpp files"
-  call s:system ('find . -name "*.hpp"  >> cscope.files')
+  call s:system ('find `pwd` -name "*.hpp"  >> cscope.files')
   :echohl Directory
   :echon "\rfind *.c files"
-  call s:system ('find . -name "*.c"    >> cscope.files')
+  call s:system ('find `pwd` -name "*.c"    >> cscope.files')
   :echohl Directory
   :echon "find *.inf files"
-  call s:system ('find . -name "*.inf"  >> cscope.files')
+  call s:system ('find `pwd` -name "*.inf"  >> cscope.files')
   :echohl Directory
   :echon "\rfind *.dec files"
-  call s:system ('find . -name "*.dec"  >> cscope.files')
+  call s:system ('find `pwd` -name "*.dec"  >> cscope.files')
   :echohl Directory
   :echon "\rfind *.dsc files"
-  call s:system ('find . -name "*.dsc"  >> cscope.files')
+  call s:system ('find `pwd` -name "*.dsc"  >> cscope.files')
   :echohl Directory
   :echon "\rfind *.uni files"
-  call s:system ('find . -name "*.uni"  >> cscope.files')
+  call s:system ('find `pwd` -name "*.uni"  >> cscope.files')
   :echohl Directory
   :echon "\rfind *.Vfr files"
-  call s:system ('find . -name "*.Vfr"  >> cscope.files')
+  call s:system ('find `pwd` -name "*.Vfr"  >> cscope.files')
   :echohl Directory
   :echon "\rfind *.vfr files"
-  call s:system ('find . -name "*.vfr"  >> cscope.files')
+  call s:system ('find `pwd` -name "*.vfr"  >> cscope.files')
   :echohl Special
   :echon "\rSorting cscope files..."
   call s:system ('sort -o cscope.filessort cscope.files')
