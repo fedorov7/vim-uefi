@@ -51,19 +51,22 @@ function! s:UpdateCscope()
   :echon "\rfind *.c files"
   call s:system ('find `pwd` ! -wholename "*tmp/*" -name "*.c"    >> cscope.files')
   :echohl Directory
-  :echon "\rfind *.c files"
+  :echon "\rfind *.conf files"
   call s:system ('find `pwd` ! -wholename "*tmp/*" -name "*.conf"    >> cscope.files')
   :echohl Directory
-  :echon "\rfind *.c files"
+  :echon "\rfind *.cmake files"
+  call s:system ('find `pwd` ! -wholename "*tmp/*" -name "*.cmake" >> cscope.files')
+  :echohl Directory
+  :echon "\rfind *.bbappend files"
   call s:system ('find `pwd` ! -wholename "*tmp/*" -name "*.bbappend"    >> cscope.files')
   :echohl Directory
-  :echon "\rfind *.c files"
+  :echon "\rfind *.bb files"
   call s:system ('find `pwd` ! -wholename "*tmp/*" -name "*.bb"    >> cscope.files')
   :echohl Directory
-  :echon "\rfind *.c files"
+  :echon "\rfind *.txt files"
   call s:system ('find `pwd` ! -wholename "*tmp/*" -name "*.txt"    >> cscope.files')
   :echohl Directory
-  :echon "\rfind *.c files"
+  :echon "\rfind *.cpp files"
   call s:system ('find `pwd` ! -wholename "*tmp/*" -name "*.cpp"    >> cscope.files')
   :echohl Directory
   :echon "\rfind *.inf files"
